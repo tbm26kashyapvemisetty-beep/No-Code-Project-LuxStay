@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        /* Luxury Dark Theme - Deep Navy & Gold */
+        --background: 222 47% 4%;
+        /* Deep navy/charcoal #050816 */
+        --foreground: 48 100% 96%;
+        /* Warm white #FFFBF0 */
+
+        --card: 220 40% 8%;
+        /* Deep slate #0F1729 */
+        --card-foreground: 48 100% 96%;
+
+        --popover: 220 40% 8%;
+        --popover-foreground: 48 100% 96%;
+
+        --primary: 45 93% 70%;
+        /* Champagne gold #FACC6B */
+        --primary-foreground: 222 47% 11%;
+
+        --secondary: 150 60% 50%;
+        /* Muted sage/teal #34D399 */
+        --secondary-foreground: 222 47% 11%;
+
+        --muted: 220 30% 15%;
+        /* Muted slate #1E2536 */
+        --muted-foreground: 48 30% 75%;
+
+        --accent: 45 93% 70%;
+        /* Gold accent */
+        --accent-foreground: 222 47% 11%;
+
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 48 100% 96%;
+
+        --border: 220 30% 18%;
+        --input: 220 30% 18%;
+        --ring: 45 93% 70%;
+
+        --radius: 0.75rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+/* Custom luxury styles */
+.luxury-gradient {
+    background: linear-gradient(135deg, #0F1729 0%, #050816 100%);
+}
+
+.gold-gradient {
+    background: linear-gradient(135deg, #FACC6B 0%, #F59E0B 100%);
+}
+
+.glass-effect {
+    background: rgba(15, 23, 41, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(250, 204, 107, 0.1);
+}
+
+/* Premium typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    letter-spacing: -0.02em;
+    font-weight: 600;
+}
+
+.luxury-heading {
+    background: linear-gradient(135deg, #FACC6B 0%, #FCD34D 50%, #FACC6B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Booked dates in calendar - react-day-picker v9 */
+.rdp-day.booked,
+.rdp .booked {
+    position: relative !important;
+    background-color: hsl(var(--destructive) / 0.15) !important;
+    color: hsl(var(--destructive)) !important;
+    text-decoration: line-through !important;
+    cursor: not-allowed !important;
+}
+
+.rdp-day.booked:hover,
+.rdp .booked:hover {
+    background-color: hsl(var(--destructive) / 0.2) !important;
+}
+
+/* Add a visual indicator for booked dates */
+.rdp-day.booked::before,
+.rdp .booked::before {
+    content: '✕';
+    position: absolute;
+    top: 1px;
+    right: 2px;
+    font-size: 8px;
+    color: hsl(var(--destructive));
+    font-weight: bold;
+}
